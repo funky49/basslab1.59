@@ -1,7 +1,29 @@
 // script.js - v1.80 (Unified Engine)
+// test // // //
 const PI = Math.PI;
 
 document.addEventListener('DOMContentLoaded', () => {
+// Add this at the very beginning of your DOMContentLoaded function
+const unlockAudio = () => {
+    const ctx = getSafeContext();
+    if (ctx.state === 'suspended' || ctx.state === 'closed') {
+        // Create a tiny silent buffer to "kickstart" the hardware
+        const buffer = ctx.createBuffer(1, 1, 22050);
+        const source = ctx.createBufferSource();
+        source.buffer = buffer;
+        source.connect(ctx.destination);
+        source.start(0);
+        ctx.resume();
+    }
+    // Remove the listeners once unlocked so we don't waste battery
+    window.removeEventListener('touchstart', unlockAudio);
+    window.removeEventListener('mousedown', unlockAudio);
+};
+window.addEventListener('touchstart', unlockAudio);
+window.addEventListener('mousedown', unlockAudio);
+
+
+
   const MIN_HZ = 25, MAX_HZ = 75;
   let currentHz = 49;
   let audioContext, activeOsc, activeGain, analyser, vizRAF, trackRAF, melodyTimeout, toneInterval;
