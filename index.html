@@ -1,0 +1,103 @@
+<!-- index.html -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>basslab by funky49</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header class="site-header">
+  <div class="container header-inner">
+    <button id="vizStopBtn" class="panic-viz">
+      <canvas id="waveCanvas"></canvas>
+      <span class="panic-text">WARNING — STOP ALL AUDIO</span>
+    </button>
+  </div>
+</header>
+
+<main class="container">
+  <h2 class="freq-title">
+    <span class="title-layer title-normal">Oobleck Dance Generator</span>
+    <span class="title-layer title-invert">Oobleck Dance Generator</span>
+  </h2>
+
+  <div class="integrated-control-container">
+    <button id="freqDownBtn" class="integrated-side-btn">−</button>
+    <div id="mainKnob" class="knob main-knob">
+      <div class="knob-indicator"></div>
+      <div class="knob-center">
+        <div class="knob-value" id="freqReadout">49</div>
+        <div class="knob-unit">Hz</div>
+      </div>
+    </div>
+    <button id="freqUpBtn" class="integrated-side-btn">+</button>
+  </div>
+
+  <div class="gen-controls">
+    <button id="startBtn" class="btn">Start Generator</button>
+    <button id="stopBtn" class="btn secondary">Stop All</button>
+  </div>
+
+  <div class="macro-grid">
+    <button id="bassDropBtn" class="btn">Bass Drop</button>
+    <button id="bassRiseBtn" class="btn">Bass Rise</button>
+    <button id="testTonesBtn" class="btn">Test Tones</button>
+  </div>
+
+<div class="macro-grid">
+  <button id="song1Btn" class="btn song-btn">Song 1</button>
+  <button id="song2Btn" class="btn song-btn">Song 2</button>
+  <button id="song3Btn" class="btn song-btn">Song 3</button>
+  <button id="song4Btn" class="btn song-btn">Song 4</button>
+  <button id="song5Btn" class="btn song-btn">Song 5</button>
+  <button id="song6Btn" class="btn song-btn">Song 6</button>
+  <button id="song7Btn" class="btn song-btn">Song 7</button>
+  <button id="song8Btn" class="btn song-btn">Song 8</button>
+</div>
+  
+</main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>&copy; <span id="year"></span> basslab.science</p>
+      </div>
+    </footer>
+
+  </div>
+
+<script src="songs.js"></script>
+<script src="script.js"></script>
+<HR>
+
+
+  <!--legacy code for reference:-->
+  <div class="knob-row">
+          <button id="freqDownBtn" class="freq-step-btn" type="button" aria-label="Decrease frequency">−</button>
+
+          <div
+            id="freqKnob"
+            class="knob"
+            role="slider"
+            tabindex="0"
+            aria-label="Frequency"
+            aria-valuemin="25"
+            aria-valuemax="75"
+            aria-valuenow="49"
+            aria-valuetext="49 Hz"
+          >
+            <div class="knob-indicator"></div>
+            <div class="knob-center">
+              <div class="knob-value" id="freqReadout">49</div>
+              <div class="knob-unit">Hz</div>
+            </div>
+          </div>
+
+          <button id="freqUpBtn" class="freq-step-btn" type="button" aria-label="Increase frequency">+</button>
+        </div>
+
+
+</body>
+</html>
